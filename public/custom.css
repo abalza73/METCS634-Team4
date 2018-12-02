@@ -29,3 +29,9 @@
     border-radius: .25rem;
     background-color: #995F5F;
 }
+
+/* Header Overwrites */
+
+h3 {
+    color: #f2af58;
+}
