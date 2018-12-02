@@ -11,13 +11,16 @@ $(document).ready(function() {
     var data = {
         concertData: [
             {title : "Concert 1",
-             description: "loren ipsum 1"
+             description: "loren ipsum 1",
+             ticketURL: "//www.google.com"
             },
             {title : "Concert 2", 
-            description: "loren ipsum 2"
+             description: "loren ipsum 2",
+             ticketURL: "//www.tickets2.com"
             },
             {title : "Concert 3",
-            description: "loren ipsum 2"
+             description: "loren ipsum 2",
+             ticketURL: "//www.tickets3.com"
             }
         ]
     };
