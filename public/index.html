@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- OUR Base overwrites Bootstrap CSS -->
+    <link rel="stylesheet" href="base.css">
     <title>Carlos Libedinsky</title>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/5.6.0/firebase-app.js"></script>
@@ -26,26 +28,44 @@
   </head>
   <body>
     <!-- ################################# OUR CODE STARTS HERE ################################# -->
+    
+    <!-- COMMENTED OUT banner/jumbotron 
     <div class="jumbotron text-center" style="margin-bottom:0">
+<<<<<<< HEAD
         <h1>Carlos Libedinsky</h1>
         <p>Title 1</p> 
       </div>
+=======
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="Logo.jpg" class="img-fluid" alt="Logo"/>
+            </div> 
+            <div class="col-sm-8">
+              <h1>Carlos Libedinsky</h1>
+            </div> 
+        </div>
+      </div>      
+    </div> 
+    -->
+>>>>>>> fabian-dev
       
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="background-color:#FFFFFF !important">
+        <a class="navbar-brand" href="#"><img src="Logo.jpg" class="img-fluid" alt="Logo"/></a>
+        <!-- <span style="color:#995F5F !important">Carlos Libedinsky</span> -->
+        <button id="btn-hamburger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="background-color:#995F5F !important">
+          <span class="navbar-toggler-icon" style="border-color: #995F5F !important; color:#995F5F !important"></span>
         </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" style="border-color: #995F5F !important; color:#995F5F !important">
+          <ul class="navbar-nav" style="font-size:1.5em !important">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html" style="color:#995F5F !important">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="concerts.html">Concerts</a>
+              <a class="nav-link" href="concerts.html" style="color:#995F5F !important">Concerts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#" style="color:#995F5F !important">Music</a>
             </li>    
           </ul>
         </div>  
