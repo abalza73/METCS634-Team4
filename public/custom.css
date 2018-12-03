@@ -47,7 +47,8 @@ h3.gray {
 }
 
 hr.new4 {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
+    border: 1px solid blue;
   }
 
 /* Social media images Overwrites */
