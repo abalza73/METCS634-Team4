@@ -19,31 +19,6 @@
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
-
-  <script>
-    // Initialize Cloud Firestore
-
-    firebase.initializeApp({
-      apiKey: 'AIzaSyCJUiRfxTPoIuig0jxjvoaRPTcNgjgp5zc',
-      authDomain: 'carlos-libedinsky.firebaseapp.com',
-      projectId: 'carlos-libedinsky'
-    });
-
-    // Initialize Cloud Firestore through Firebase
-    var db = firebase.firestore();
-
-    // Disable deprecated features
-    db.settings({
-      timestampsInSnapshots: true
-    });
-
-    db.collection("concerts").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-        });
-    });
-
-  </script>
     
   </head>
   <body>
@@ -70,7 +45,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h3 class="text-center">Events</h3>
+          <h3 class="gray">Events</h3>
         </div>
       </div>
         
@@ -83,7 +58,7 @@
         </div>
         {{/concertData}}
       </script>
-      <div id="concerts" class="row"></div>
+      <div id="events" class="row"></div>
     </div>
 
     <!-- TODO: Update style and insert Social Media Icons -->
