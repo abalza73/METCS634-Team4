@@ -51,7 +51,7 @@ hr.new4 {
   }
 
 /* Social media images Overwrites */
-.img-fluid .social {
+img.img-fluid.social {
     margin: 10 10;
     background: #aaa;
 }
