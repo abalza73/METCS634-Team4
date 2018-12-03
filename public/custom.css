@@ -35,3 +35,9 @@
 h3 {
     color: #f2af58;
 }
+
+/* Body Overwrites */
+
+body {
+    font-family: 'Lato', sans-serif;
+}
