@@ -22,17 +22,25 @@ $(document).ready(function() {
              description: "loren ipsum 2",
              ticketURL: "//www.tickets3.com"
             },
-            {title : "Concert 1",
-             description: "loren ipsum 1",
+            {title : "Concert 3",
+             description: "loren ipsum 4",
              ticketURL: "//www.google.com"
             },
-            {title : "Concert 2", 
-             description: "loren ipsum 2",
+            {title : "Concert 5", 
+             description: "loren ipsum 5",
              ticketURL: "//www.tickets2.com"
             },
-            {title : "Concert 3",
-             description: "loren ipsum 2",
+            {title : "Concert 6",
+             description: "loren ipsum 6",
              ticketURL: "//www.tickets3.com"
+            },
+            {title : "Concert 7",
+             description: "loren ipsum 7",
+             ticketURL: "//www.google.com"
+            },
+            {title : "Concert 8", 
+             description: "loren ipsum 8",
+             ticketURL: "//www.tickets2.com"
             }
         ]
     };
