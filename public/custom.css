@@ -49,3 +49,9 @@ h3.gray {
 hr.new4 {
     border: 1px solid red;
   }
+
+/* Social media images Overwrites */
+.img-fluid .social {
+    margin: 10px 10px;
+    background: #aaa;
+}
