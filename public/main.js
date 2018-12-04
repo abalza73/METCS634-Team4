@@ -19,11 +19,17 @@ $(document).ready(function() {
     // TODO: Left this here in case you want to try to get pass the async issues with Firebase
     // Printing to the console from Firebase works, but I cant get the data into a var so I can
     // pass it to mustache
+    var dtest;
     db.collection("concerts").get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             console.log(doc.id, " => ", JSON.stringify(doc.data()));
+            
         });
+        dtest = querySnapshot.concerts;
     });
+
+    console.log("HERE");
+    console.log(dtest);
 
     // This is the template for concerts html
     var template = document.getElementById("template").innerHTML;
