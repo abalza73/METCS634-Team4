@@ -15,38 +15,7 @@ $(document).ready(function() {
     db.settings({
         timestampsInSnapshots: true
     });
-    
-    // TODO: fix await functions
-    db.collection("concerts").get().then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-        data2 += doc.data;
-        // doc.data() is never undefined for query doc snapshots
-        //console.log(doc.id, " => ", JSON.stringify(doc.data()));
-        var html = Mustache.render(template, data2);
-        });
-        console.log("data2: " + data2);
-    });
 
-    // Function to get concert information out of firebase
-    function getConcerts() {
-        var concerts;
-        db.collection("concerts").get().then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                console.log(doc.id, " => ", JSON.stringify(doc.data()));
-                concerts += JSON.stringify(doc.data);
-            });
-            console.log("concerts: " + concerts);
-        });
-      }
-      
-    async function main() {
-        var concertList = await getConcerts();
-        console.log("concert List: " + concertList);
-    }
-
-    main();
-
-    
     
     // This is the template for concerts html
     var template = document.getElementById("template").innerHTML;
