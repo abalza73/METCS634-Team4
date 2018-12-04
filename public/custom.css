@@ -55,3 +55,11 @@ hr.new4 {
     margin: 10px 10px;
     background: #aaa;
 }
+
+h5.events {
+    background-color: #f2af58;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}

@@ -16,7 +16,15 @@ $(document).ready(function() {
         timestampsInSnapshots: true
     });
 
-    
+    // TODO: Left this here in case you want to try to get pass the async issues with Firebase
+    // Printing to the console from Firebase works, but I cant get the data into a var so I can
+    // pass it to mustache
+    db.collection("concerts").get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            console.log(doc.id, " => ", JSON.stringify(doc.data()));
+        });
+    });
+
     // This is the template for concerts html
     var template = document.getElementById("template").innerHTML;
     
@@ -26,37 +34,77 @@ $(document).ready(function() {
     // Concert data    
     var data = {
         concertData: [
-            {title : "Concert 1",
-             description: "loren ipsum 1",
-             ticketURL: "//www.google.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 2", 
-             description: "loren ipsum 2",
-             ticketURL: "//www.tickets2.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 3",
-             description: "loren ipsum 2",
-             ticketURL: "//www.tickets3.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 3",
-             description: "loren ipsum 4",
-             ticketURL: "//www.google.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 5", 
-             description: "loren ipsum 5",
-             ticketURL: "//www.tickets2.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 6",
-             description: "loren ipsum 6",
-             ticketURL: "//www.tickets3.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 7",
-             description: "loren ipsum 7",
-             ticketURL: "//www.google.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             },
-            {title : "Concert 8", 
-             description: "loren ipsum 8",
-             ticketURL: "//www.tickets2.com"
+            {day : "07",
+             month: "December",
+             year: "2018",
+             time: "7:00",
+             dayOfWeek: "Friday",
+             location: "Miami, FL",
+             venue: "American Airlines Arena",
+             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
             }
         ]
     };
