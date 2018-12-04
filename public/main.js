@@ -33,9 +33,17 @@ $(document).ready(function() {
 
     // This is the template for concerts html
     var template = document.getElementById("template").innerHTML;
+
+    var renderFunc = function(template, data) {
+        // Concert html
+        var html = Mustache.render(template, data);
+        return html;
+    }
     
     // This is the target div for concerts html 
     var concerts = document.getElementById("events");
+
+    
 
     // Concert data    
     var data = {
@@ -115,11 +123,9 @@ $(document).ready(function() {
         ]
     };
 
-    // Concert html
-    var html = Mustache.render(template, data);
-
+    
     // Insert html into target div
-    concerts.innerHTML = html;
+    concerts.innerHTML = renderFunc(template, data);
 
     console.log("this file is executing");
     
