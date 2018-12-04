@@ -111,8 +111,10 @@ $(document).ready(function() {
     // pass it to mustache
    
     db.collection("concerts").get().then(function(querySnapshot) {
+        console.log(querySnapshot.concerts);
         querySnapshot.forEach(function(doc) {
             console.log(doc.id, " => ", JSON.stringify(doc.data()));
+
             
         });
         var dtest = querySnapshot.concerts;
