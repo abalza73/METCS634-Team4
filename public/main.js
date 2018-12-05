@@ -117,11 +117,11 @@ $(document).ready(function() {
         querySnapshot.forEach(function(doc) {
             //console.log(doc.id, " => ", JSON.stringify(doc.data()));
             data4Template.push(doc.data());
-            console.log("HERE");
-            console.log(data4Template);
-            data4Template = {concertData: data4Template};
-            concerts.innerHTML = renderFunc(template, data4Template);
         });
+        console.log("HERE");
+        console.log(data4Template);
+        data4Template = {concertData: data4Template};
+        concerts.innerHTML = renderFunc(template, data4Template);
     });
 
 
