@@ -107,10 +107,7 @@ $(document).ready(function() {
         ]
     };
 
-    // TODO: Left this here in case you want to try to get pass the async issues with Firebase
-    // Printing to the console from Firebase works, but I cant get the data into a var so I can
-    // pass it to mustache
-   
+    // !!!!!!DONE!!!!!!   
     db.collection("concerts").get().then(function(querySnapshot) {
         
         var data4Template = [];
@@ -118,8 +115,8 @@ $(document).ready(function() {
             //console.log(doc.id, " => ", JSON.stringify(doc.data()));
             data4Template.push(doc.data());
         });
-        console.log("HERE");
-        console.log(data4Template);
+        //console.log("HERE");
+        //console.log(data4Template);
         data4Template = {concertData: data4Template};
         concerts.innerHTML = renderFunc(template, data4Template);
     });
