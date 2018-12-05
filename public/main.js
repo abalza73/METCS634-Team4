@@ -20,7 +20,7 @@ $(document).ready(function() {
     var template = document.getElementById("template").innerHTML;
 
     var renderFunc = function(template, data) {
-        console.log("render func (" + template + ", " + data + ")");
+        console.log("render func (" + template + " :,: " + data + ")");
         // Concert html
         var html = Mustache.render(template, data);
         return html;
@@ -119,6 +119,7 @@ $(document).ready(function() {
             data4Template.push(doc.data());
             console.log("HERE");
             console.log(data4Template);
+            data4Template = {concertData: data4Template};
             concerts.innerHTML = renderFunc(template, data4Template);
         });
     });
