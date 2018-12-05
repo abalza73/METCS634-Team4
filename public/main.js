@@ -111,16 +111,14 @@ $(document).ready(function() {
     // pass it to mustache
    
     db.collection("concerts").get().then(function(querySnapshot) {
-        console.log(querySnapshot);
+        
         var data4Template = [];
         querySnapshot.forEach(function(doc) {
             //console.log(doc.id, " => ", JSON.stringify(doc.data()));
             data4Template.push(JSON.stringify(doc.data()))
+            console.log("HERE");
             console.log(data4Template);
         });
-        var dtest = querySnapshot.concerts;
-        console.log("HERE");
-        console.log(dtest);
     });
 
 
