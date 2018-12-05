@@ -115,7 +115,7 @@ $(document).ready(function() {
         var data4Template = [];
         querySnapshot.forEach(function(doc) {
             //console.log(doc.id, " => ", JSON.stringify(doc.data()));
-            data4Template.push(JSON.stringify(doc.data()))
+            data4Template.push(doc.data());
             console.log("HERE");
             console.log(data4Template);
         });
