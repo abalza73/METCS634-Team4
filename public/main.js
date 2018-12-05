@@ -118,6 +118,7 @@ $(document).ready(function() {
             data4Template.push(doc.data());
             console.log("HERE");
             console.log(data4Template);
+            concerts.innerHTML = renderFunc(template, data4Template);
         });
     });
 
@@ -126,7 +127,7 @@ $(document).ready(function() {
 
     
     // Insert html into target div
-    concerts.innerHTML = renderFunc(template, data);
+    //concerts.innerHTML = renderFunc(template, data);
 
     console.log("this file is executing");
     
