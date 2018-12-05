@@ -112,10 +112,11 @@ $(document).ready(function() {
    
     db.collection("concerts").get().then(function(querySnapshot) {
         console.log(querySnapshot);
+        var data4Template = [];
         querySnapshot.forEach(function(doc) {
-            console.log(doc.id, " => ", JSON.stringify(doc.data()));
-
-            
+            //console.log(doc.id, " => ", JSON.stringify(doc.data()));
+            data4Template.push(JSON.stringify(doc.data()))
+            console.log(data4Template);
         });
         var dtest = querySnapshot.concerts;
         console.log("HERE");
