@@ -20,6 +20,7 @@ $(document).ready(function() {
     var template = document.getElementById("template").innerHTML;
 
     var renderFunc = function(template, data) {
+        console.log("render func (" + template + ", " + data + ")");
         // Concert html
         var html = Mustache.render(template, data);
         return html;
