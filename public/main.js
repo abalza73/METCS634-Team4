@@ -79,6 +79,8 @@ $(document).ready(function() {
                     // show details
                     detailsHTML = renderFunc(detailsTemplate,eventDict[concert.id]);
                     concertDetails.innerHTML = detailsHTML;
+                    // change column size and center text
+                    document.getElementById("flexColumn").className = "col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2";
                 });
             }
         }

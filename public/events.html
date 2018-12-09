@@ -60,7 +60,7 @@
         {{/concertData}}
       </script>
       <script id="concert_template" type="x-tmpl-mustache">
-        <div class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
+        <div id="flexColumn" class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
           <hr class="d-sm-none"/>
           <h5 class="event_details">{{title}}</h5>
           <p><i>{{description}}</i></p>
@@ -75,6 +75,7 @@
           <p>{{time}}</p>
           <br>
           <div onclick="window.open('{{ticketURL}}', '_blank');"><button>Buy Tickets</button></div>
+          <div onclick="window.open('events.html', '_self');"><button>View all Events</button></div>
           <br>
         </div>
       </script>
