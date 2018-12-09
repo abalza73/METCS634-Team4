@@ -72,17 +72,10 @@ $(document).ready(function() {
                     // show details
                     detailsHTML = renderFunc(detailsTemplate,eventDict[concert.id]);
                     concertDetails.innerHTML = detailsHTML;
-                } );
+                });
             }
         }
     });
-
-
-
-
-    
-    // Insert html into target div
-    //concerts.innerHTML = renderFunc(template, data);
 
     console.log("main.js executing");
     
