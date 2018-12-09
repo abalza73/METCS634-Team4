@@ -63,3 +63,18 @@ h5.events {
     padding-bottom: 1em;
     text-align: center;
 }
+
+h5.media_events {
+    background-color: #d8092b;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
+h5.event_details {
+    background-color: #fa284b;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}

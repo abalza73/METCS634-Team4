@@ -22,6 +22,9 @@ $(document).ready(function() {
     // This is the template for concert details
     var detailsTemplate = document.getElementById("concert_template").innerHTML;
 
+    // This is the template for media events
+    var mediaTemplate = document.getElementById("media_template").innerHTML;
+
     var renderFunc = function(template, data) {
         console.log("render func (" + template + " :,: " + data + ")");
         // Concert html
@@ -33,6 +36,8 @@ $(document).ready(function() {
     var concerts = document.getElementById("events");
     // This is the target div for concert details html
     var concertDetails = document.getElementById("concert_details");
+    // This is the target div for media apperances
+    var mediaEvents = document.getElementById("media_events");
 
     // On loading database  
     db.collection("concerts").get().then(function(querySnapshot) {
@@ -65,8 +70,10 @@ $(document).ready(function() {
                 eventElement.addEventListener("click", function(e) {
                     console.log("you clicked on " + e.srcElement.parentNode.id);
                     var concert = e.srcElement.parentNode;
-                    // hide concerts
+                    // hide concerts & media events
                     concerts.style.display = "none";
+                    mediaEvents.style.display = "none";
+                    document.getElementById("media_title").style.display = "none";
                     // change page title
                     document.getElementById("events_title").innerHTML = "Concert Details";
                     // show details
@@ -75,6 +82,24 @@ $(document).ready(function() {
                 });
             }
         }
+    });
+
+    db.collection("media_events").get().then(function(querySnapshot) {
+        
+        var data4Template = [];
+    
+        querySnapshot.forEach( function(doc) {
+            console.log(doc.data().eventId);
+            // add event to list
+            data4Template.push(doc.data());
+            // add event to dictionary
+            eventId = doc.data().eventId;
+        });
+
+        // create data object with concertData field
+        data4Template = {mediaData: data4Template};
+        // render concert data and place in page
+        mediaEvents.innerHTML = renderFunc(mediaTemplate, data4Template);
     });
 
     console.log("main.js executing");
