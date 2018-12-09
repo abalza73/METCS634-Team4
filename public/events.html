@@ -45,19 +45,57 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h3 class="gray">Events</h3>
+          <h3 id="events_title" class="gray">Concerts</h3>
         </div>
-      </div>  
+      </div>
       <script id="template" type="x-tmpl-mustache">
         {{#concertData}}
-        <div class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
-        <h5 class="events">{{day}} {{month}} {{year}}</h5>
-        <p>{{location}}</p>
-        <p>{{venue_name}}</p>
+        <div id={{eventId}} class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
+          <hr class="d-sm-none"/>
+          <h5 class="events" id="concert_date">{{day}} {{month}} {{year}}</h5>
+          <p>{{location}}</p>
+          <p>{{venue_name}}</p>
         </div>
         {{/concertData}}
       </script>
+      <script id="concert_template" type="x-tmpl-mustache">
+        <div class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
+          <hr class="d-sm-none"/>
+          <h5 class="event_details">{{title}}</h5>
+          <p><i>{{description}}</i></p>
+          <br>
+          <p><b>Carlos Libedinsky</b></p>
+          <p><b>{{guests}}</b></p>
+          <br>
+          <p>{{venue_name}}</p>
+          <p>{{venue_address}}</p>
+          <br>
+          <p>{{day}} {{month}}, {{year}}</p>
+          <p>{{time}}</p>
+          <br>
+          <div onclick="window.open('{{ticketURL}}', '_blank');"><button>Buy Tickets</button></div>
+          <br>
+        </div>
+      </script>
+      <script id="media_template" type="x-tmpl-mustache">
+        {{#mediaData}}
+        <div id={{eventId}} class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{mediaURL}}', '_blank');">
+          <hr class="d-sm-none"/>
+          <h5 class="media_events" id="media_date">{{month}} {{day}}, {{year}} at {{time}}</h5>
+          <p>{{description}}</p>
+        </div>
+        {{/mediaData}}
+      </script>
+  
       <div id="events" class="row"></div>
+      <div id="concert_details" class="row"></div>
+
+      <div class="row">
+          <div class="col-sm-12">
+            <h3 id="media_title" class="gray">Media Events</h3>
+          </div>
+      </div>  
+      <div id="media_events" class="row"></div>
     </div>
 
     <!-- Social Media Icons -->
