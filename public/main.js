@@ -19,6 +19,9 @@ $(document).ready(function() {
     // This is the template for concerts html
     var template = document.getElementById("template").innerHTML;
 
+    // This is the template for concert details
+    var detailsTemplate = document.getElementById("concert_template").innerHTML;
+
     var renderFunc = function(template, data) {
         console.log("render func (" + template + " :,: " + data + ")");
         // Concert html
@@ -28,97 +31,50 @@ $(document).ready(function() {
     
     // This is the target div for concerts html 
     var concerts = document.getElementById("events");
+    // This is the target div for concert details html
+    var concertDetails = document.getElementById("concert_details");
 
-    // Concert data    
-    var data = {
-        concertData: [
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            },
-            {day : "07",
-             month: "December",
-             year: "2018",
-             time: "7:00",
-             dayOfWeek: "Friday",
-             location: "Miami, FL",
-             venue: "American Airlines Arena",
-             ticketsURL: "https://www.songkick.com/artists/460145-carlos-libedinsky"
-            }
-        ]
-    };
-
-    // !!!!!!DONE!!!!!!   
+    // On loading database  
     db.collection("concerts").get().then(function(querySnapshot) {
         
         var data4Template = [];
-        querySnapshot.forEach(function(doc) {
-            //console.log(doc.id, " => ", JSON.stringify(doc.data()));
+        var eventDict = {};
+
+        querySnapshot.forEach( function(doc) {
+            console.log(doc.data().eventId);
+            // add event to list
             data4Template.push(doc.data());
+            // add event to dictionary
+            eventId = doc.data().eventId;
+            eventDict[eventId] = doc.data();
+            
         });
-        //console.log("HERE");
-        //console.log(data4Template);
+        console.log(eventDict);
+        // create data object with concertData field
         data4Template = {concertData: data4Template};
+        // render concert data and place in page
         concerts.innerHTML = renderFunc(template, data4Template);
+
+        // Add event listeners
+        for (var eventProp in eventDict) {
+            if (eventDict.hasOwnProperty(eventProp)) {
+                console.log("doing stuff for event " + eventProp);
+                eventElement = document.getElementById(eventProp);
+
+                // add listener
+                eventElement.addEventListener("click", function(e) {
+                    console.log("you clicked on " + e.srcElement.parentNode.id);
+                    var concert = e.srcElement.parentNode;
+                    // hide concerts
+                    concerts.style.display = "none";
+                    // change page title
+                    document.getElementById("events_title").innerHTML = "Concert Details";
+                    // show details
+                    detailsHTML = renderFunc(detailsTemplate,eventDict[concert.id]);
+                    concertDetails.innerHTML = detailsHTML;
+                } );
+            }
+        }
     });
 
 
@@ -128,7 +84,7 @@ $(document).ready(function() {
     // Insert html into target div
     //concerts.innerHTML = renderFunc(template, data);
 
-    console.log("this file is executing");
+    console.log("main.js executing");
     
 })
 
