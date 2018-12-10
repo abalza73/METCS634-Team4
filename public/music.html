@@ -50,45 +50,26 @@
             </div>
         </div>
         <script id="albums_template" type="x-tmpl-mustache">
-            {{#musicData}}
-                <div id={{albumId}} class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{album_URL}}', '_blank');">
-                    {{album_name}}<br>
-                    {{album_year}} <br>
+            {{#albumData}}
+                <div id={{album_id}} class="col-sm-4 text-center">
+                    <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="300"><br>
+                    {{album_name}} ({{album_year}})
+                </div>
+            {{/albumData}}
+        </script>
+        <script id="tracks_template" type="x-tmpl-mustache">
+            {{#tracksData}}
+                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{album_URL}}', '_blank');">
+                    Tracks: <br>
                     {{tracks}}
                 </div>
-            {{/musicData}}
+            {{/tracksData}}
         </script>
          <!-- ######   TODO:
-                Link albums with detailed album info and music.js
+                Fix the tracks display info
          ######-->
-        <div class="row">
-            <div id="albumCovers" class="col-sm-4 text-center mt-3">
-                <div>
-                    <img src="images/narcoTango.jpg" class="img-fluid" alt="NarcoTango CD Cover" width="300">
-                </div>
-            </div>
-            <div class="col-sm-4 text-center mt-3">
-                <div>
-                    <img src="images/Fueye-cd.jpg" class="img-fluid" alt="Fueye CD Cover" width="300">
-                </div>
-            </div>
-            <div class="col-sm-4 text-center mt-3">
-                    <img src="images/solapa.jpg" class="img-fluid" alt="Solapa CD Cover" width="300">
-            </div>
-        </div>
-        <div class="row">
-            <div id="albumCovers" class="col-sm-4 text-center mt-3">
-                <div>
-                    <img src="images/narcotango_v2.jpg" class="img-fluid" alt="NarcoTango Vol 2 CD Cover" width="300">
-                </div>
-            </div>
-            <div class="col-sm-4 text-center mt-3">
-                <div>
-                    <img src="images/narcotango_live.jpg" class="img-fluid" alt="Narcotango Live CD Cover" width="300">
-                </div>
-            </div>
-        </div>
-        <div id="album_details" class="row"></div>
+        <div id="albums" class="row"></div>
+        <div id="tracks" class="row"></div>
       
         <!-- Social Media Icons -->
         <hr class="new4">

@@ -17,17 +17,19 @@ $(document).ready(function() {
     });
 
     // This is the template for music html
-    var template = document.getElementById("albums_template").innerHTML;
+    var albums_template = document.getElementById("albums_template").innerHTML;
+    var tracks_template = document.getElementById("tracks_template").innerHTML;
 
-    var renderFunc = function(template, data) {
-        console.log("render func (" + template + " :,: " + data + ")");
+    var renderFunc = function(albums_template, data) {
+        console.log("render func (" + albums_template + " :,: " + data + ")");
         // Concert html
-        var html = Mustache.render(template, data);
+        var html = Mustache.render(albums_template, data);
         return html;
     }
     
-    // This is the target div for concerts html 
+    // This is the target div html 
     var albums = document.getElementById("albums");
+    var tracks = document.getElementById("tracks");
 
     // On loading database  
     db.collection("music").get().then(function(querySnapshot) {
@@ -40,7 +42,7 @@ $(document).ready(function() {
             // add event to list
             data4Template.push(doc.data());
             // add event to dictionary
-            albumId = doc.id;
+            albumId = doc.data().album_id;
             albumDict[albumId] = doc.data();
             
         });
@@ -51,24 +53,22 @@ $(document).ready(function() {
         albums.innerHTML = renderFunc(albums_template, data4Template);
 
         // Add event listeners
-        for (var eventProp in eventDict) {
-            if (eventDict.hasOwnProperty(eventProp)) {
-                console.log("doing stuff for event " + eventProp);
-                eventElement = document.getElementById(eventProp);
+        for (var albumProp in albumDict) {
+            if (albumDict.hasOwnProperty(albumProp)) {
+                console.log("doing stuff for album " + albumProp);
+                albumElement = document.getElementById(albumProp);
 
                 // add listener
-                eventElement.addEventListener("click", function(e) {
+                albumElement.addEventListener("click", function(e) {
                     console.log("you clicked on " + e.srcElement.parentNode.id);
                     var album = e.srcElement.parentNode;
-                    // hide albumCovers events
-                    albumCovers.style.display = "none";
+                    // hide albums
+                    albums.style.display = "none";
                     // change page title
-                    document.getElementById("album_details").innerHTML = "Album Details";
+                    document.getElementById("tracks").innerHTML = "Album Details";
                     // show details
-                    detailsHTML = renderFunc(detailsTemplate,eventDict[album.id]);
-                    albumDetails.innerHTML = detailsHTML;
-                    // change column size and center text
-                    document.getElementById("flexColumn").className = "col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2";
+                    detailsHTML = renderFunc(tracks_template,albumDict[album.id]);
+                    tracks.innerHTML = detailsHTML;
                 });
             }
         }
