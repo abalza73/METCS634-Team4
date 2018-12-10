@@ -44,78 +44,51 @@
       </div>  
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3 id="events_title" class="gray">Concerts</h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 id="events_title" class="gray">Music</h3>
+            </div>
         </div>
-      </div>
-      <script id="template" type="x-tmpl-mustache">
-        {{#concertData}}
-        <div id={{eventId}} class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
-          <hr class="d-sm-none"/>
-          <h5 class="events" id="concert_date">{{day}} {{month}} {{year}}</h5>
-          <p>{{location}}</p>
-          <p>{{venue_name}}</p>
+        <script id="albums_template" type="x-tmpl-mustache">
+            {{#albumData}}
+                <div id={{album_id}} class="col-sm-4 text-center">
+                    <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="300"><br>
+                    {{album_name}} ({{album_year}})
+                </div>
+            {{/albumData}}
+        </script>
+        <script id="tracks_template" type="x-tmpl-mustache">
+            {{#tracksData}}
+                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{album_URL}}', '_blank');">
+                    Tracks: <br>
+                    {{tracks}}
+                </div>
+            {{/tracksData}}
+        </script>
+         <!-- ######   TODO:
+                Fix the tracks display info
+         ######-->
+        <div id="albums" class="row"></div>
+        <div id="tracks" class="row"></div>
+      
+        <!-- Social Media Icons -->
+        <hr class="new4">
+        <div class="row">
+            <div class="col-sm-12 bg-light text-center">
+                <b>CONNECT: </b>
+                <a href="https://www.facebook.com/carlos.libedinsky?jazoest=2651001207068120103766672109108844510311587101541186755113110118685380991051098389521057078799866509511711166119586510012157727157106721174575717651118868670891207510284671131038557102122114808372114989510475995168828765" target="_blank">
+                <i class="fa fa-facebook-official" style="font-size:1em; color:#3b5998"></i></a> &nbsp;
+                <a href="https://www.instagram.com/carloslibedinsky/?hl=en" target="_blank">
+                <i class="fa fa-instagram" style="font-size:1em; color:#8a3ab9"></i></a>
+                <b> | BUY: </b>
+                <a href="https://www.amazon.com/Carlos-Libedinsky/e/B00197GQR4/ref=dp_byline_cont_music_1" target="_blank">
+                <i class="fa fa-amazon" style="font-size:1em; color:#000000"></i></a> &nbsp;
+                <a href="https://itunes.apple.com/us/artist/carlos-libedinsky/297410842" target="_blank">
+                <i class="fa fa-apple" style="font-size:1em; color:#b2b2b2"></i></a>
+            </div>
         </div>
-        {{/concertData}}
-      </script>
-      <script id="concert_template" type="x-tmpl-mustache">
-        <div class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
-          <hr class="d-sm-none"/>
-          <h5 class="event_details">{{title}}</h5>
-          <p><i>{{description}}</i></p>
-          <br>
-          <p><b>Carlos Libedinsky</b></p>
-          <p><b>{{guests}}</b></p>
-          <br>
-          <p>{{venue_name}}</p>
-          <p>{{venue_address}}</p>
-          <br>
-          <p>{{day}} {{month}}, {{year}}</p>
-          <p>{{time}}</p>
-          <br>
-          <div onclick="window.open('{{ticketURL}}', '_blank');"><button>Buy Tickets</button></div>
-          <br>
-        </div>
-      </script>
-      <script id="media_template" type="x-tmpl-mustache">
-        {{#mediaData}}
-        <div id={{eventId}} class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{mediaURL}}', '_blank');">
-          <hr class="d-sm-none"/>
-          <h5 class="media_events" id="media_date">{{month}} {{day}}, {{year}} at {{time}}</h5>
-          <p>{{description}}</p>
-        </div>
-        {{/mediaData}}
-      </script>
-  
-      <div id="events" class="row"></div>
-      <hr>
-      <div id="concert_details" class="row"></div>
-
-      <div class="row">
-          <div class="col-sm-12">
-            <h3 id="media_title" class="gray">Media Events</h3>
-          </div>
-      </div>  
-      <div id="media_events" class="row"></div>
-
-      <!-- Social Media Icons -->
-      <hr class="new4">
-      <div class="row">
-      <div class="col-sm-12 bg-light text-center">
-        <b>CONNECT: </b>
-        <a href="https://www.facebook.com/carlos.libedinsky?jazoest=2651001207068120103766672109108844510311587101541186755113110118685380991051098389521057078799866509511711166119586510012157727157106721174575717651118868670891207510284671131038557102122114808372114989510475995168828765" target="_blank">
-        <i class="fa fa-facebook-official" style="font-size:1em; color:#3b5998"></i></a> &nbsp;
-        <a href="https://www.instagram.com/carloslibedinsky/?hl=en" target="_blank">
-        <i class="fa fa-instagram" style="font-size:1em; color:#8a3ab9"></i></a>
-        <b> | BUY: </b>
-        <a href="https://www.amazon.com/Carlos-Libedinsky/e/B00197GQR4/ref=dp_byline_cont_music_1" target="_blank">
-          <i class="fa fa-amazon" style="font-size:1em; color:#000000"></i></a> &nbsp;
-        <a href="https://itunes.apple.com/us/artist/carlos-libedinsky/297410842" target="_blank">
-          <i class="fa fa-apple" style="font-size:1em; color:#b2b2b2"></i></a>
-      </div>
     </div>
-  <!-- ################################# OUR CODE ENDS HERE ################################# -->
+    <!-- ################################# OUR CODE ENDS HERE ################################# -->
     <!-- Bootstrap Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -125,6 +98,6 @@
     <!-- mustache.js -->
     <script type="text/javascript" src="mustache.js"></script>
     <!-- main.js -->
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="music.js"></script>
   </body>
 </html>
