@@ -65,9 +65,14 @@ $(document).ready(function() {
                     // hide albums
                     albums.style.display = "none";
                     // change page title
-                    document.getElementById("tracks").innerHTML = "Album Details";
+                    document.getElementById("music_title").innerHTML = albumDict[album.id].album_name;
                     // show details
+
+                    data4Template = {albumData: data4Template};
+
                     detailsHTML = renderFunc(tracks_template,albumDict[album.id]);
+
+                    console.log("albumDict: " + JSON.stringify(albumDict[album.id]));
                     tracks.innerHTML = detailsHTML;
                 });
             }
