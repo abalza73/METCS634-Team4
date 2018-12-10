@@ -78,13 +78,11 @@ $(document).ready(function() {
     });
 
     function toggler() {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      } 
+        // hide tracks
+        tracks.style.display = "none";
+        // show albums
+        albums.style.display = "block";
+    }
 
     console.log("music.js executing");
     

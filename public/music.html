@@ -65,11 +65,25 @@
                     <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="350" onclick="window.open('{{album_url}}', '_blank');"><br>
                     <hr>
                     Tracks: <br>
-                    {{tracks}}
+                    {{tracks}}<br>
+                    <hr>
+                    <div onclick="toggler()">Back</div>
                 </div>
         </script>
         <div id="albums" class="row"></div>
         <div id="tracks" class="row"></div>
+
+        <script>
+            function toggler() {
+                var albums = document.getElementById("albums");
+                var tracks = document.getElementById("tracks");
+                // show albums
+                albums.style.display = "block";
+                // hide tracks
+                tracks.style.display = "none";
+                
+            }   
+        </script>
       
         <!-- Social Media Icons -->
         <hr class="new4">
