@@ -72,6 +72,7 @@ $(document).ready(function() {
 
                     console.log("albumDict: " + JSON.stringify(albumDict[album.id]));
                     tracks.innerHTML = detailsHTML;
+                    
                 });
             }
         }
