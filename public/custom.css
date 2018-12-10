@@ -82,3 +82,8 @@ h5.event_details {
 a.linkEvent {
     color: #f2af58;
 }
+
+ul.tracks {
+    list-style: none;
+    text-align: left;
+}
