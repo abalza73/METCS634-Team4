@@ -65,14 +65,24 @@ $(document).ready(function() {
                     // hide albums
                     albums.style.display = "none";
                     // change page title
-                    document.getElementById("tracks").innerHTML = "Album Details";
+                    document.getElementById("music_title").innerHTML = albumDict[album.id].album_name;
                     // show details
+
                     detailsHTML = renderFunc(tracks_template,albumDict[album.id]);
+
+                    console.log("albumDict: " + JSON.stringify(albumDict[album.id]));
                     tracks.innerHTML = detailsHTML;
                 });
             }
         }
     });
+
+    function toggler() {
+        // hide tracks
+        tracks.style.display = "none";
+        // show albums
+        albums.style.display = "block";
+    }
 
     console.log("music.js executing");
     

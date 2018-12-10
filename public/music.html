@@ -46,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3 id="events_title" class="gray">Music</h3>
+                <h3 id="music_title" class="gray">Music</h3>
             </div>
         </div>
         <script id="albums_template" type="x-tmpl-mustache">
@@ -57,19 +57,33 @@
                 </div>
             {{/albumData}}
         </script>
-        <script id="tracks_template" type="x-tmpl-mustache">
-            {{#tracksData}}
-                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{album_URL}}', '_blank');">
-                    Tracks: <br>
-                    {{tracks}}
-                </div>
-            {{/tracksData}}
-        </script>
-         <!-- ######   TODO:
-                Fix the tracks display info
+        <!-- ######   TODO:
+            Fix the tracks display info
          ######-->
+        <script id="tracks_template" type="x-tmpl-mustache">
+                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2">
+                    <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="350" onclick="window.open('{{album_url}}', '_blank');"><br>
+                    <hr>
+                    Tracks: <br>
+                    {{tracks}}<br>
+                    <hr>
+                    <div onclick="toggler()">Back</div>
+                </div>
+        </script>
         <div id="albums" class="row"></div>
         <div id="tracks" class="row"></div>
+
+        <script>
+            function toggler() {
+                var albums = document.getElementById("albums");
+                var tracks = document.getElementById("tracks");
+                // show albums
+                albums.style.display = "block";
+                // hide tracks
+                tracks.style.display = "none";
+                
+            }   
+        </script>
       
         <!-- Social Media Icons -->
         <hr class="new4">
