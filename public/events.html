@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- OUR Base overwrites Bootstrap CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="custom.css">
     <title>Carlos Libedinsky</title>
 
@@ -37,7 +38,7 @@
             <a class="nav-link" href="events.html">Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Music</a>
+            <a class="nav-link" href="music.html">Music</a>
           </li>    
         </ul>
       </div>  
@@ -59,7 +60,7 @@
         {{/concertData}}
       </script>
       <script id="concert_template" type="x-tmpl-mustache">
-        <div class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
+        <div id="flexColumn" class="col-sm-3 bg-light text-dark text-center mt-2 ml-2 mr-2">
           <hr class="d-sm-none"/>
           <h5 class="event_details">{{title}}</h5>
           <p><i>{{description}}</i></p>
@@ -74,6 +75,7 @@
           <p>{{time}}</p>
           <br>
           <div onclick="window.open('{{ticketURL}}', '_blank');"><button>Buy Tickets</button></div>
+          <div onclick="window.open('events.html', '_self');"><button>View all Events</button></div>
           <br>
         </div>
       </script>
@@ -88,6 +90,7 @@
       </script>
   
       <div id="events" class="row"></div>
+      <hr>
       <div id="concert_details" class="row"></div>
 
       <div class="row">
@@ -96,17 +99,21 @@
           </div>
       </div>  
       <div id="media_events" class="row"></div>
-    </div>
 
-    <!-- Social Media Icons -->
-    <hr class="new4">
-    <div class="row">
-      <div class="col-sm-12 text-center shadow rounded">
-          <h3 class="text-center" style="color:#01A793;">Connect</h3>
-          <a href="https://www.facebook.com/carlos.libedinsky?jazoest=2651001207068120103766672109108844510311587101541186755113110118685380991051098389521057078799866509511711166119586510012157727157106721174575717651118868670891207510284671131038557102122114808372114989510475995168828765">
-            <img src="images/facebookIcon.jpg" class="img-fluid social" alt="Facebook" width="35px" style="margin: 10px 20px 5px;"/></a>
-          <a href="https://www.instagram.com/carloslibedinsky/?hl=en">
-            <img src="images/intagramIcon.jpeg" class="img-fluid social" alt="Instagram" width="37px" style="margin: 10px 20px 5px;"/></a>
+      <!-- Social Media Icons -->
+      <hr class="new4">
+      <div class="row">
+      <div class="col-sm-12 bg-light text-center">
+        <b>CONNECT: </b>
+        <a href="https://www.facebook.com/carlos.libedinsky?jazoest=2651001207068120103766672109108844510311587101541186755113110118685380991051098389521057078799866509511711166119586510012157727157106721174575717651118868670891207510284671131038557102122114808372114989510475995168828765" target="_blank">
+        <i class="fa fa-facebook-official" style="font-size:1em; color:#3b5998"></i></a> &nbsp;
+        <a href="https://www.instagram.com/carloslibedinsky/?hl=en" target="_blank">
+        <i class="fa fa-instagram" style="font-size:1em; color:#8a3ab9"></i></a>
+        <b> | BUY: </b>
+        <a href="https://www.amazon.com/Carlos-Libedinsky/e/B00197GQR4/ref=dp_byline_cont_music_1" target="_blank">
+          <i class="fa fa-amazon" style="font-size:1em; color:#000000"></i></a> &nbsp;
+        <a href="https://itunes.apple.com/us/artist/carlos-libedinsky/297410842" target="_blank">
+          <i class="fa fa-apple" style="font-size:1em; color:#b2b2b2"></i></a>
       </div>
     </div>
   <!-- ################################# OUR CODE ENDS HERE ################################# -->

@@ -78,3 +78,7 @@ h5.event_details {
     padding-bottom: 1em;
     text-align: center;
 }
+
+a.linkEvent {
+    color: #f2af58;
+}
