@@ -65,7 +65,11 @@
                     <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="350" onclick="window.open('{{album_url}}', '_blank');"><br>
                     <hr>
                     Tracks: <br>
-                    {{tracks}}<br>
+                    {{#tracks}}<br>
+                    <ul>
+                        <li>{{track_number}}. {{track_title}}</li>
+                    </ul>
+                    {{/tracks}}
                     <hr>
                     <div onclick="toggler()">Back</div>
                 </div>
