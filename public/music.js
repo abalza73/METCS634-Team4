@@ -68,8 +68,6 @@ $(document).ready(function() {
                     document.getElementById("music_title").innerHTML = albumDict[album.id].album_name;
                     // show details
 
-                    data4Template = {albumData: data4Template};
-
                     detailsHTML = renderFunc(tracks_template,albumDict[album.id]);
 
                     console.log("albumDict: " + JSON.stringify(albumDict[album.id]));
@@ -78,6 +76,15 @@ $(document).ready(function() {
             }
         }
     });
+
+    function toggler() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      } 
 
     console.log("music.js executing");
     

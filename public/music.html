@@ -61,7 +61,9 @@
             Fix the tracks display info
          ######-->
         <script id="tracks_template" type="x-tmpl-mustache">
-                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2" onclick="window.open('{{album_URL}}', '_blank');">
+                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2">
+                    <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="350" onclick="window.open('{{album_url}}', '_blank');"><br>
+                    <hr>
                     Tracks: <br>
                     {{tracks}}
                 </div>
