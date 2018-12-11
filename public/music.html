@@ -61,40 +61,34 @@
             Fix the tracks display info
          ######-->
         <script id="tracks_template" type="x-tmpl-mustache">
-                <div class="col-sm-12 bg-light text-dark text-center mt-2 ml-2 mr-2">
+                <div class="col-sm-12 bg-white text-dark text-center mt-2 ml-2 mr-2">
                     <img src={{album_image}} class="img-fluid" alt="{{album_name}} CD Cover" width="350" onclick="window.open('{{album_url}}', '_blank');"><br>
+                    <br>
+                    <br>
+                    <b><i>Tracks</i></b> 
+                    <br>
                     <hr>
-                    Tracks: <br>
-                    {{#tracks}}<br>
-                    <ul class="tracks">
-                        <li>
-                            {{track_number}}. {{track_title}}    (<i>{{track_length}}</i>)
-                            <audio controls>
-                                <source src="music/{{track_url}}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
-                        </li>
-                    </ul>
-                    {{/tracks}}
+                </div>
+                {{#tracks}}
+                <div class="col-sm-6 bg-light">
+                    {{track_number}}. {{track_title}}    (<i>{{track_length}}</i>)
+                </div>
+                <div class="col-sm-6 bg-light">
+                    <audio controls>
+                        <source src="music/{{track_url}}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                {{/tracks}}
+                
+                <div class="col-sm-12 text-center">
                     <hr>
-                    <div onclick="toggler()">Back</div>
+                    <a href="music.html" target="_self">Back</a>
                 </div>
         </script>
         <div id="albums" class="row"></div>
         <div id="tracks" class="row"></div>
 
-        <script>
-            function toggler() {
-                var albums = document.getElementById("albums");
-                var tracks = document.getElementById("tracks");
-                // show albums
-                albums.style.display = "block";
-                // hide tracks
-                tracks.style.display = "none";
-                
-            }   
-        </script>
-      
         <!-- Social Media Icons -->
         <hr class="new4">
         <div class="row">
